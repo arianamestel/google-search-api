@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const ENTER = 13;
 
-export const SearchInput = ({ getResults }) => {
+export const SearchInput = ({ getResults, reset, searchValue }) => {
   const [input, setInput] = useState("");
   const [isSameInput, setIsSameInput] = useState(false);
   const handleInputChange = (e) => {
@@ -22,18 +22,32 @@ export const SearchInput = ({ getResults }) => {
     }
   };
 
+  const handleClear = () => {
+    setInput("");
+    setIsSameInput(false);
+    reset();
+  };
+
   return (
-    <div className="input-group d-flex justify-content-center">
+    <div className="input-group d-flex justify-content-center border rounded-3">
       <input
         type="text"
         name="googleInput"
         id="googleInput"
-        className="form-control mr-2 col-6"
+        className="form-control mr-2 border-end-0 border-0"
         value={input}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         placeholder="Search"
       />
+      {searchValue && (
+        <button
+          type="button"
+          className="btn-close my-auto mr-1 clearButton"
+          aria-label="Close"
+          onClick={handleClear}
+        ></button>
+      )}
       <button
         name="submitGoogleApi"
         id="submitGoogleApi"

@@ -65,10 +65,20 @@ export const GoogleApi = () => {
     );
   };
 
+  const reset = () => {
+    setIndex(0);
+    setResults([]);
+    setSearchValue("");
+  };
+
   return (
     <div className="container">
       <Title />
-      <SearchInput getResults={getResults} />
+      <SearchInput
+        getResults={getResults}
+        reset={reset}
+        searchValue={searchValue}
+      />
       {!!results.length && (
         <SearchResults
           {...{

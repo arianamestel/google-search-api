@@ -1,1 +1,18 @@
+.clearButton {
+    margin-right: 8px!important;
+}
 
+.clearButton {
+    box-shadow:none !important;
+    outline:0px !important;
+}
+
+#googleInput:focus,
+#googleInput:active{
+    box-shadow:none !important;
+    outline:0px !important;
+}
+
+.result:hover {
+    background-color: rgba(108,117,125, .25)!important;
+}

@@ -154,7 +154,7 @@ export const DownloadModal = ({ checkedItems = [] }) => {
                   onChange={handleInputChange}
                   required
                 />
-                <div id="exportFileName" class="invalid-feedback">
+                <div id="exportFileName" className="invalid-feedback">
                   Please provide a file name
                 </div>
               </div>

@@ -49,32 +49,42 @@ export const SearchResults = ({
             {results.map((item, i) => {
               if (i >= index - 10 && i < index)
                 return (
-                  <div className="form-check mb-2" key={item.cacheId}>
-                    <input
-                      className="form-check-input mt-2"
-                      type="checkbox"
-                      id={item.cacheId}
-                      onChange={() => handleItemCheck(item)}
-                      checked={item.checked}
-                    />
-                    <a href={item.link} target="_blank" rel="noreferrer">
-                      <span className="fs-5 fw-bold">{item.title}</span>
-                    </a>
-                    <div>{item.snippet}</div>
+                  <div
+                    className={`p-3 rounded-2 mb-2 result ${
+                      item.checked ? "bg-secondary bg-opacity-25" : "bg-light"
+                    }`}
+                    key={item.cacheId}
+                    onClick={() => handleItemCheck(item)}
+                    role="button"
+                  >
+                    <div className="form-check">
+                      <input
+                        className="form-check-input mt-2"
+                        type="checkbox"
+                        onChange={() => handleItemCheck(item)}
+                        checked={item.checked}
+                      />
+                      <a href={item.link} target="_blank" rel="noreferrer">
+                        <span className="fs-5 fw-bold">{item.title}</span>
+                      </a>
+                      <div>{item.snippet}</div>
+                    </div>
                   </div>
                 );
               return null;
             })}
           </div>
           <nav aria-label="...">
-            <ul class="pagination justify-content-center">
-              <li class={"page-item " + (index - 10 <= 0 ? "disabled" : "")}>
-                <span class="page-link" onClick={handlePreviousClick}>
+            <ul className="pagination justify-content-center">
+              <li
+                className={"page-item " + (index - 10 <= 0 ? "disabled" : "")}
+              >
+                <span className="page-link" onClick={handlePreviousClick}>
                   Previous
                 </span>
               </li>
-              <li class="page-item">
-                <span class="page-link" onClick={handleNextClick}>
+              <li className="page-item">
+                <span className="page-link" onClick={handleNextClick}>
                   Next
                 </span>
               </li>
